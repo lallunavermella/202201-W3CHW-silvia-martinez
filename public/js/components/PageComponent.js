@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import Component from "./Component.js";
 import PokeCardComponent from "./PokeCardComponent.js";
 
+const pokemons = [];
 class PageComponent extends Component {
   constructor(parentElement) {
     super(parentElement, "page");
@@ -32,6 +34,7 @@ class PageComponent extends Component {
     this.renderPokeCard();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   renderPokeCard() {
     const parentElement = document.querySelector(".row");
     pokemons.forEach((pokemon) => {
