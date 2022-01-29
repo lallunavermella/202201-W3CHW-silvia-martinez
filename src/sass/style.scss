@@ -1,2 +1,19 @@
+body {
+  box-sizing: content-box;
+  background-color: rgb(161, 216, 216);
+}
+.container {
+  width: 100%;
+  border: 1px solid black;
 
+  .row {
+    display: flex;
 
+    border: 1px solid red;
+    .card {
+      flex-direction: row;
+      border: 1px solid blue;
+      justify-content: space-around;
+    }
+  }
+}

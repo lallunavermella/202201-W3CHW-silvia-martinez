@@ -6,12 +6,24 @@
   "scripts": {
     "test": "npx jest --watchAll --verbose",
     "test-coverage": "npx jest --watchAll --verbose --collect-coverage",
-    "sass": "npx sass src/sass/style.scss public/style/style.css",
+    "sass": "npx sass --watch src/sass/style.scss public/style/style.css",
     "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@types/jest": "^27.4.0",
