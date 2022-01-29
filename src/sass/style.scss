@@ -8,10 +8,12 @@ body {
 
   .row {
     display: flex;
-
+    flex-wrap: wrap;
     border: 1px solid red;
+
     .card {
       flex-direction: row;
+
       border: 1px solid blue;
       justify-content: space-around;
     }

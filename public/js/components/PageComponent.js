@@ -1,4 +1,5 @@
 import Component from "./Component.js";
+import PokeCardComponent from "./PokeCardComponent.js";
 
 class PageComponent extends Component {
   constructor(parentElement) {
@@ -7,7 +8,7 @@ class PageComponent extends Component {
   }
 
   generateHTML() {
-    this.element.innerHTML = `<body>
+    this.element.innerHTML = `
     <header class="header">
       <nav class="nav">
         <ul class="unlisted-list">
@@ -21,42 +22,26 @@ class PageComponent extends Component {
     <main class="main">
       <div class="container">
         <div class="row">
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__text">
-              <h2 class="card__text--title">Nombre:</h2>
-              <p class="card__text--abilities">Habilidad:</p>
-              <p class="card__text--velocidad">Velocidad</p>
-              <p class="card__text--peso">Peso</p>
-              <button class="button button--details">detalles</button>
-              <button class="button button--add">mi pokemon</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__text">
-              <h2 class="card__text--title">Nombre:</h2>
-              <p class="card__text--abilities">Habilidad:</p>
-              <p class="card__text--velocidad">Velocidad</p>
-              <p class="card__text--peso">Peso</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__text">
-              <h2 class="card__text--title">Nombre:</h2>
-              <p class="card__text--abilities">Habilidad:</p>
-              <p class="card__text--velocidad">Velocidad</p>
-              <p class="card__text--peso">Peso</p>
-            </div>
-          </div>
         </div>
       </div>
       <button>Menos</button>
       <button>Mas</button>
     </main>
-    <footer>Pikachu</footer>
-  </body>`;
+    <footer>Pikachu</footer>`;
+
+    this.renderPokeCard();
+  }
+
+  renderPokeCard() {
+    const parentElement = document.querySelector(".row");
+    pokemons.forEach((pokemon) => {
+      const pokeCard = new PokeCardComponent(
+        parentElement,
+        "card",
+        "div",
+        pokemons
+      );
+    });
   }
 }
 
