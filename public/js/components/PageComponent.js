@@ -2,7 +2,7 @@
 import ButtonComponent from "./ButtonComponent.js";
 import Component from "./Component.js";
 import PokeCardComponent from "./PokeCardComponent.js";
-import pokemonList from "./fetchPokemon.js";
+import listPokemonProperties, { getPokemon } from "./fetchPokemon.js";
 
 class PageComponent extends Component {
   constructor(parentElement) {
@@ -39,14 +39,12 @@ class PageComponent extends Component {
   renderPokeCard() {
     const parentElement = document.querySelector(".row");
 
-    pokemonList.results.forEach((pokemon) => {
+    listPokemonProperties.results.forEach(async (pokemon) => {
       const { name } = pokemon;
-      const pokeCard = new PokeCardComponent(
-        parentElement,
-        "card",
-        "div",
-        name
-      );
+      const pokeCard = new PokeCardComponent(parentElement, "card", "div");
+      const pokemonDetails = await getPokemon(pokemon.url);
+      pokeCard.pokemonDetails = pokemonDetails;
+      pokeCard.generateHTML();
     });
   }
 }
