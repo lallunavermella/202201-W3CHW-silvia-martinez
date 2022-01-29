@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
+import ButtonComponent from "./ButtonComponent.js";
 import Component from "./Component.js";
 import PokeCardComponent from "./PokeCardComponent.js";
+import pokemonList from "./fetchPokemon.js";
 
-const pokemons = [];
 class PageComponent extends Component {
   constructor(parentElement) {
     super(parentElement, "page");
@@ -37,12 +38,14 @@ class PageComponent extends Component {
   // eslint-disable-next-line class-methods-use-this
   renderPokeCard() {
     const parentElement = document.querySelector(".row");
-    pokemons.forEach((pokemon) => {
+
+    pokemonList.results.forEach((pokemon) => {
+      const { name } = pokemon;
       const pokeCard = new PokeCardComponent(
         parentElement,
         "card",
         "div",
-        pokemons
+        name
       );
     });
   }
