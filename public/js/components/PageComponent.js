@@ -17,9 +17,8 @@ class PageComponent extends Component {
         <ul class="unlisted-list">
           <li><a href="pokemons.html">Todos</a></li>
           <li><a href="misPokemons.html"> Mis Pokemons</a></li>
-          <li><a href="detalle.html"> Pokemon detalles</a></li>
         </ul>
-        <img src="pokemon-logo.svg" alt="logo Pokemon" />
+        <img class="nav--title"src="pokemon-logo.svg" alt="logo Pokemon" />
       </nav>
     </header>
     <main class="main">
