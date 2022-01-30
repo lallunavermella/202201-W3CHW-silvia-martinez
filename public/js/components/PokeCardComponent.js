@@ -17,7 +17,18 @@ class PokeCardComponent extends Component {
               <p class="card__text--velocidad">Experiencia: ${this.pokemonDetails.base_experience}</p>
               <p class="card__text--peso">Peso: ${this.pokemonDetails.weight}</p>
             <div class="button__container"></div>
-            </div>`;
+            </div>
+            <div class="card__overlay">
+                <ul class="list-unstyled">
+                  <li>Id: ${this.pokemonDetails.id}</li>
+                  <li>Tipo: ${this.pokemonDetails.types[0].type.name}</li>
+                  <li>Habilidad: ${this.pokemonDetails.abilities[0].ability.name}</li>
+                  <li>Altura: ${this.pokemonDetails.height}</li>
+                  <li>Peso: ${this.pokemonDetails.weight}</li>
+                </ul>
+                <div class="card__action">
+                  <button class="card__action btn">Mi Pokemon</button>
+                  `;
   }
 }
 export default PokeCardComponent;
