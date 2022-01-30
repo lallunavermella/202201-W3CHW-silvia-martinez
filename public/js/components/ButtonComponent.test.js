@@ -8,7 +8,18 @@ describe("Given a ButtonComponent", () => {
 
       new ButtonComponent(parentElement);
 
-      expect(parentElement.querySelector("button")).not.toBeNull();
+      expect(parentElement.querySelector("i")).not.toBeNull();
+    });
+  });
+  describe("When click", () => {
+    test("Then do an action", () => {
+      const parentElement = document.createElement("div");
+      const action = jest.fn();
+      const button = new ButtonComponent(parentElement, "button", action);
+
+      button.element.click();
+
+      expect(action).toBeCalled();
     });
   });
 });
