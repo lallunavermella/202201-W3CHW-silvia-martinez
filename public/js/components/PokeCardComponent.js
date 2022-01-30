@@ -43,8 +43,20 @@ class PokeCardComponent extends Component {
                   <li>Peso: ${this.pokemonDetails.weight}</li>
                 </ul>
                 <div class="card__action">
-                  <button class="card__action btn">Mi Pokemon</button>
                   `;
+    this.renderButton();
+  }
+
+  renderButton() {
+    const button = new ButtonComponent(
+      this.element,
+      "card__action btn fas fa-heart ",
+      () => this.addMyPokemon()
+    );
+  }
+
+  addMyPokemon() {
+    this.generateHTML();
   }
 }
 export default PokeCardComponent;

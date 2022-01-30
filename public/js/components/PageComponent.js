@@ -5,6 +5,8 @@ import PokeCardComponent from "./PokeCardComponent.js";
 import listPokemonProperties, { getPokemon } from "./fetchPokemon.js";
 
 class PageComponent extends Component {
+  cards = [];
+
   constructor(parentElement) {
     super(parentElement, "page");
     this.generateHTML();
@@ -41,6 +43,7 @@ class PageComponent extends Component {
 
     listPokemonProperties.results.forEach(async (pokemon) => {
       const { name } = pokemon;
+
       const pokeCard = new PokeCardComponent(parentElement, "card", "div");
       const pokemonDetails = await getPokemon(pokemon.url);
       pokeCard.pokemonDetails = pokemonDetails;

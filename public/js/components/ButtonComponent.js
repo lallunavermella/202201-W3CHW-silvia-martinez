@@ -1,16 +1,10 @@
 import Component from "./Component.js";
 
 class ButtonComponent extends Component {
-  constructor(parentElement, className, action, text) {
+  constructor(parentElement, className, action) {
     super(parentElement, className, "i");
 
-    this.text = text;
-
     this.addListeners(action);
-  }
-
-  generateHTML() {
-    this.element.innerHTML = `${this.text}`;
   }
 
   addListeners(action) {
