@@ -1,8 +1,10 @@
 import Component from "./Component.js";
 
 class ButtonComponent extends Component {
-  constructor(parentElement, className, action) {
-    super(parentElement, className, "button");
+  constructor(parentElement, className, action, text) {
+    super(parentElement, className, "i");
+
+    this.text = text;
 
     this.addListeners(action);
   }

@@ -101,14 +101,14 @@ img {
   pointer-events: all;
   top: 0;
 }
-.card__actions {
+.card__action {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 90px;
 }
-.card__action {
+/* .card__action.btn {
   background-color: rgba(39, 113, 223, 0.7);
   color: yellow;
   width: 100px;
@@ -116,4 +116,7 @@ img {
   border: 0;
   border-radius: 25px;
   cursor: pointer;
+} */
+.far {
+  color: pink;
 }
