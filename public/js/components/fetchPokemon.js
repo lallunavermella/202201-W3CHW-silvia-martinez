@@ -1,22 +1,40 @@
-/* eslint-disable no-unused-vars */
-const nextPokemons = "";
-const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
+let nextPage = null;
+let previousPage = null;
 
-async function fetchPokemons() {
-  const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon/");
-  const results = await pokemons.json();
+const urlPokemonApi = "https://pokeapi.co/api/v2/pokemon/";
 
-  const pokemonArray = results;
-  return pokemonArray;
+export async function fetchPokemons() {
+  const response = await fetch(urlPokemonApi);
+  const result = await response.json();
+
+  nextPage = result.next;
+  previousPage = result.previous;
+
+  return result;
 }
 
-const pokemonList = await fetchPokemons();
-/* export default nextPokemons = pokemonList.next; */
+export async function fetchPokemonsNextPage() {
+  const response = await fetch(nextPage);
+  const result = await response.json();
+
+  nextPage = result.next;
+  previousPage = result.previous;
+
+  return result;
+}
+
+export async function fetchPokemonsPreviousPage() {
+  const response = await fetch(previousPage);
+  const result = await response.json();
+
+  nextPage = result.next;
+  previousPage = result.previous;
+
+  return result;
+}
 
 export async function getPokemon(url) {
   const response = await fetch(url);
   const pokemon = await response.json();
   return pokemon;
 }
-
-export default pokemonList;
