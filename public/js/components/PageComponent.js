@@ -3,10 +3,9 @@
 import Component from "./Component.js";
 import PokeCardComponent from "./PokeCardComponent.js";
 import listPokemonProperties, { getPokemon } from "./fetchPokemon.js";
+import ButtonComponent from "./ButtonComponent.js";
 
 class PageComponent extends Component {
-  cards = [];
-
   constructor(parentElement) {
     super(parentElement, "page");
     this.generateHTML();
@@ -30,13 +29,13 @@ class PageComponent extends Component {
         </div>
       </div>
       <section class="buttons">
-        <button>Menos</button>
-        <button>Mas</button>
+        
       </section>
     </main>
     <footer>Pikachu</footer>`;
 
     this.renderPokeCard();
+    this.renderButtons();
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -52,6 +51,24 @@ class PageComponent extends Component {
       pokeCard.generateHTML();
     });
   }
+
+  renderButtons() {
+    const parentElement = document.querySelector(".buttons");
+    const buttonPrevios = new ButtonComponent(
+      parentElement,
+      "fas fa-minus btn",
+      this.action
+    );
+
+    const buttonNext = new ButtonComponent(
+      parentElement,
+      "fas fa-plus btn",
+      this.action
+    );
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  action() {}
 }
 
 export default PageComponent;

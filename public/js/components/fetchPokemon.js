@@ -1,5 +1,10 @@
+let nextPokemons = "";
+const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
+
 async function fetchPokemons() {
-  const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon/");
+  const url = pokeApi;
+
+  const pokemons = await fetch(url);
   const results = await pokemons.json();
 
   const pokemonArray = results;
@@ -7,6 +12,7 @@ async function fetchPokemons() {
 }
 
 const pokemonList = await fetchPokemons();
+nextPokemons = pokemonList.next;
 
 export async function getPokemon(url) {
   const response = await fetch(url);
