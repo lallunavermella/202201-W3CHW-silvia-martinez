@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let nextPokemons = "";
 const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -11,13 +12,11 @@ async function fetchPokemons() {
   return pokemonArray;
 }
 
-const pokemonList = await fetchPokemons();
-nextPokemons = pokemonList.next;
+export const pokemonList = await fetchPokemons();
+export default nextPokemons = pokemonList.next;
 
 export async function getPokemon(url) {
   const response = await fetch(url);
   const pokemon = await response.json();
   return pokemon;
 }
-
-export default pokemonList;
