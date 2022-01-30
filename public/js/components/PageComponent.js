@@ -2,12 +2,26 @@
 
 import Component from "./Component.js";
 import PokeCardComponent from "./PokeCardComponent.js";
-import listPokemonProperties, { getPokemon } from "./fetchPokemon.js";
+import { getPokemon, fetchPokemons } from "./fetchPokemon.js";
 import ButtonComponent from "./ButtonComponent.js";
 
 class PageComponent extends Component {
-  constructor(parentElement) {
+  pokemonsResponse;
+
+  actionNextPage;
+
+  actionPreviuosPage;
+
+  constructor(
+    parentElement,
+    pokemonsResponse,
+    actionNextPage,
+    actionPreviuosPage
+  ) {
     super(parentElement, "page");
+    this.pokemonsResponse = pokemonsResponse;
+    this.actionPreviuosPage = actionPreviuosPage;
+    this.actionNextPage = actionNextPage;
     this.generateHTML();
   }
 
@@ -20,7 +34,6 @@ class PageComponent extends Component {
           <li> <img class="nav--title"src="pokemon-logo.svg" alt="logo Pokemon" /> </li>
           <li><a href="misPokemons.html"> Mis Pokemons</a></li>
         </ul>
-       
       </nav>
     </header>
     <main class="main">
@@ -29,20 +42,19 @@ class PageComponent extends Component {
         </div>
       </div>
       <section class="buttons">
-        
       </section>
     </main>
     <footer>Pikachu</footer>`;
 
-    this.renderPokeCard();
+    this.renderPokeCards();
     this.renderButtons();
   }
 
   // eslint-disable-next-line class-methods-use-this
-  renderPokeCard() {
+  renderPokeCards() {
     const parentElement = document.querySelector(".pokecard");
 
-    listPokemonProperties.results.forEach(async (pokemon) => {
+    this.pokemonsResponse.results.forEach(async (pokemon) => {
       const { name } = pokemon;
 
       const pokeCard = new PokeCardComponent(parentElement, "card", "div");
@@ -57,18 +69,15 @@ class PageComponent extends Component {
     const buttonPrevios = new ButtonComponent(
       parentElement,
       "fas fa-minus btn",
-      this.action
+      this.actionPreviuosPage
     );
 
     const buttonNext = new ButtonComponent(
       parentElement,
       "fas fa-plus btn",
-      this.action
+      this.actionNextPage
     );
   }
-
-  // eslint-disable-next-line class-methods-use-this
-  action() {}
 }
 
 export default PageComponent;
