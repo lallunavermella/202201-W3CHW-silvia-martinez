@@ -1,7 +1,33 @@
 body {
   box-sizing: content-box;
   background-color: rgb(161, 216, 216);
+  font-family: "Montserrat Alternates", sans-serif;
 }
+ul {
+  list-style: none;
+  padding: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  li {
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+  }
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .nav--title {
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -21,11 +47,15 @@ body {
       margin: 10px;
       padding: 10px;
       border-radius: 25px;
+      box-shadow: 0 0 15px rgb(41, 39, 39);
     }
     .card__image {
       border-radius: 25px;
       background-color: rgb(255, 187, 0);
       justify-content: center;
+    }
+    .card__text {
+      font-size: 14px;
     }
   }
 }
