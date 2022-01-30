@@ -16,14 +16,15 @@ class PageComponent extends Component {
       <nav class="nav">
         <ul class="unlisted-list">
           <li><a href="index.html">Todos</a></li>
+          <li> <img class="nav--title"src="pokemon-logo.svg" alt="logo Pokemon" /> </li>
           <li><a href="misPokemons.html"> Mis Pokemons</a></li>
         </ul>
-        <img class="nav--title"src="pokemon-logo.svg" alt="logo Pokemon" />
+       
       </nav>
     </header>
     <main class="main">
       <div class="container">
-        <div class="row">
+        <div class="row pokecard">
         </div>
       </div>
       <button>Menos</button>
@@ -36,7 +37,7 @@ class PageComponent extends Component {
 
   // eslint-disable-next-line class-methods-use-this
   renderPokeCard() {
-    const parentElement = document.querySelector(".row");
+    const parentElement = document.querySelector(".pokecard");
 
     listPokemonProperties.results.forEach(async (pokemon) => {
       const { name } = pokemon;
