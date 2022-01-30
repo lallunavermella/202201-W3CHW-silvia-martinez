@@ -1,10 +1,6 @@
-/* eslint-disable no-unused-vars */
-
 import Component from "./Component.js";
-import PokeCardComponent from "./PokeCardComponent.js";
-import listPokemonProperties, { getPokemon } from "./fetchPokemon.js";
 
-class PageComponent extends Component {
+class PageComponentMisPokemons extends Component {
   cards = [];
 
   constructor(parentElement) {
@@ -40,18 +36,7 @@ class PageComponent extends Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  renderPokeCard() {
-    const parentElement = document.querySelector(".pokecard");
-
-    listPokemonProperties.results.forEach(async (pokemon) => {
-      const { name } = pokemon;
-
-      const pokeCard = new PokeCardComponent(parentElement, "card", "div");
-      const pokemonDetails = await getPokemon(pokemon.url);
-      pokeCard.pokemonDetails = pokemonDetails;
-      pokeCard.generateHTML();
-    });
-  }
+  renderPokeCard() {}
 }
 
-export default PageComponent;
+export default PageComponentMisPokemons;
